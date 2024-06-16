@@ -1,4 +1,4 @@
-Json library reference
+Json Library Reference
 **********************
 
 .. current-library:: json
@@ -78,8 +78,14 @@ Conditions
       .. code-block:: dylan
 
         let data = """{"a": 1, "b": 2,}""";
-        let parsed = parse-json(data);
+        let parsed = parse-json(data, strict?: #f);
 	let a = parsed["a"];
+
+      `Run this example <https://play.opendylan.org/shared/89037b0be1300a55>`_
+      in https://play.opendylan.org
+
+      Note the use of ``strict?: #f`` is needed since *data* has a
+      trailing comma after the number 2.
 
 .. method:: parse-json
    :specializer: <stream>
@@ -120,7 +126,7 @@ Conditions
       whitespace. If an integer, then use pretty printing and output
       *indent* spaces for each indent level.
 
-      If `sort-keys:` is true, output object keys in lexicographical
+      If `sort-keys?:` is true, output object keys in lexicographical
       order.
 
 ``do-print-json``
@@ -128,7 +134,7 @@ Conditions
 
 Override this to print your own objects in JSON format. It can be
 implemented by converting objects to built-in Dylan types (tables,
-collections, etc) and calling *print* on those objects, or by
+collections, etc) and calling *print-json* on those objects, or by
 writing json syntax directly to *stream*.
 
 If `indent:` was passed to *print* then *stream* will be a pretty

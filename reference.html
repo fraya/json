@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Welcome to Json’s documentation!" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="json" href="index.html" />
 
     <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
-        <title>Json library reference - Json 1.1.1 documentation</title>
+        <title>Json Library Reference - Json 1.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
@@ -212,7 +212,7 @@
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Json library reference</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Json Library Reference</a></li>
 </ul>
 
 </div>
@@ -254,7 +254,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="json-library-reference">
-<h1>Json library reference<a class="headerlink" href="#json-library-reference" title="Link to this heading">¶</a></h1>
+<h1>Json Library Reference<a class="headerlink" href="#json-library-reference" title="Link to this heading">¶</a></h1>
 <section id="the-json-module">
 <h2>The json module<a class="headerlink" href="#the-json-module" title="Link to this heading">¶</a></h2>
 <section id="constants">
@@ -353,10 +353,14 @@ escape character.</p></li>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-dylan notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;{&quot;</span><span class="n">a</span><span class="s">&quot;: 1, &quot;</span><span class="n">b</span><span class="s">&quot;: 2,}&quot;&quot;&quot;</span><span class="p">;</span>
-<span class="k">let</span><span class="w"> </span><span class="n">parsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse-json</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="k">let</span><span class="w"> </span><span class="n">parsed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse-json</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="k">strict?:</span><span class="w"> </span><span class="l">#f</span><span class="p">);</span>
 <span class="k">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parsed</span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
+<p><a class="reference external" href="https://play.opendylan.org/shared/89037b0be1300a55">Run this example</a>
+in <a class="reference external" href="https://play.opendylan.org">https://play.opendylan.org</a></p>
+<p>Note the use of <code class="docutils literal notranslate"><span class="pre">strict?:</span> <span class="pre">#f</span></code> is needed since <em>data</em> has a
+trailing comma after the number 2.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -415,7 +419,7 @@ escape character.</p></li>
 <dd class="field-odd"><p><p>If <cite>indent</cite> is false, <em>object</em> is printed with minimal
 whitespace. If an integer, then use pretty printing and output
 <em>indent</em> spaces for each indent level.</p>
-<p>If <cite>sort-keys:</cite> is true, output object keys in lexicographical
+<p>If <cite>sort-keys?:</cite> is true, output object keys in lexicographical
 order.</p>
 </p>
 </dd>
@@ -426,7 +430,7 @@ order.</p>
 <h4><code class="docutils literal notranslate"><span class="pre">do-print-json</span></code><a class="headerlink" href="#do-print-json" title="Link to this heading">¶</a></h4>
 <p>Override this to print your own objects in JSON format. It can be
 implemented by converting objects to built-in Dylan types (tables,
-collections, etc) and calling <em>print</em> on those objects, or by
+collections, etc) and calling <em>print-json</em> on those objects, or by
 writing json syntax directly to <em>stream</em>.</p>
 <p>If <cite>indent:</cite> was passed to <em>print</em> then <em>stream</em> will be a pretty
 printing stream and the io:pprint module may be used to implement
@@ -582,7 +586,7 @@ pretty printing.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Json library reference</a><ul>
+<li><a class="reference internal" href="#">Json Library Reference</a><ul>
 <li><a class="reference internal" href="#the-json-module">The json module</a><ul>
 <li><a class="reference internal" href="#constants">Constants</a></li>
 <li><a class="reference internal" href="#conditions">Conditions</a></li>
