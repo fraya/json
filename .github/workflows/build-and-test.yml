@@ -32,7 +32,7 @@ jobs:
         run: dylan build json-test-suite
 
       - name: Run json-test-suite
-        run: _build/bin/json-test-suite --progress none --report surefire > _build/TEST-json.xml
+        run: _build/bin/json-test-suite --progress all --report surefire --report-file _build/TEST-json.xml
 
       - name: Publish Test Report
         if: success() || failure()
